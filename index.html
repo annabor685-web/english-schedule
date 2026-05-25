@@ -117,9 +117,35 @@
     /* ── Days grid ── */
     .days-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
+    .evening-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin: 20px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .evening-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .day-card--evening {
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      padding: 14px 18px 16px;
+      box-shadow: none;
+    }
+    .day-card--evening .day-name { font-size: 15px; }
+    .day-card--evening .day-hint { margin-bottom: 10px; }
 
     /* ── Day card ── */
     .day-card {
@@ -195,7 +221,7 @@
       .days-grid { grid-template-columns: 1fr; }
       .header h1 { font-size: 21px; }
     }
-    @media (min-width: 561px) and (max-width: 860px) {
+    @media (min-width: 561px) and (max-width: 780px) {
       .days-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -298,10 +324,33 @@
       </div>
     </div>
 
-    <!-- БУДНИЕ (ПН / СР / ЧТ) -->
-    <div class="day-card">
-      <div class="day-icon">🌙</div>
-      <div class="day-name">Пн · Ср · Чт</div>
+  </div>
+
+  <div class="evening-label">🌙 Вечер в будние дни</div>
+  <div class="days-grid">
+
+    <!-- ПОНЕДЕЛЬНИК -->
+    <div class="day-card day-card--evening">
+      <div class="day-name">Понедельник</div>
+      <div class="day-hint">только вечер</div>
+      <div class="slots">
+        <span class="slot">19:00</span>
+        <span class="slot">20:00</span>
+      </div>
+    </div>
+
+    <!-- СРЕДА -->
+    <div class="day-card day-card--evening">
+      <div class="day-name">Среда</div>
+      <div class="day-hint">только вечер</div>
+      <div class="slots">
+        <span class="slot">19:00</span>
+      </div>
+    </div>
+
+    <!-- ЧЕТВЕРГ -->
+    <div class="day-card day-card--evening">
+      <div class="day-name">Четверг</div>
       <div class="day-hint">только вечер</div>
       <div class="slots">
         <span class="slot">19:00</span>
