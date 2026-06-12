@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бытовой английский — слова, которых не хватает</title>
+  <style>
+    :root {
+      --accent: #B06080;
+      --accent-dark: #8A4060;
+      --accent-light: #FDEAEA;
+      --bg: #FEF0F0;
+      --card: #FFFFFF;
+      --border: #F0DEDE;
+      --text: #1C1C1E;
+      --muted: #6B7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+      .section { break-inside: avoid; }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      background: linear-gradient(135deg, #8A4060 0%, #C47898 100%);
+      color: white;
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -30px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .cover-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .cover h1 em {
+      font-style: normal;
+      opacity: 0.75;
+      font-weight: 400;
+      font-size: 26px;
+      display: block;
+      margin-top: 4px;
+    }
+    .cover-sub {
+      font-size: 15px;
+      opacity: 0.85;
+      max-width: 420px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .cover-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .author-line {
+      margin-top: 28px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+    .author-line a {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      background: var(--accent-light);
+      border-bottom: 1px solid #F0C8C8;
+      padding: 24px 40px;
+    }
+    .intro p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: #6B3050;
+      line-height: 1.7;
+    }
+    .intro strong { color: var(--accent-dark); }
+
+    /* ── Main layout ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 60px;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-icon {
+      font-size: 22px;
+      width: 44px; height: 44px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      letter-spacing: -0.01em;
+    }
+    .section-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── Word table ── */
+    .word-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .word-table thead {
+      background: #FAF0F3;
+    }
+    .word-table th {
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .word-table td {
+      padding: 12px 14px;
+      font-size: 13.5px;
+      border-bottom: 1px solid #F8ECEC;
+      vertical-align: top;
+    }
+    .word-table tr:last-child td {
+      border-bottom: none;
+    }
+    .word-table tr:hover td {
+      background: #FEF6F6;
+    }
+    .word-en {
+      font-weight: 700;
+      color: var(--accent-dark);
+      font-size: 15px;
+    }
+    .word-br {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+      display: block;
+      margin-top: 1px;
+    }
+    .word-ru {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .word-note {
+      font-size: 12px;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+    .word-example {
+      color: #4B5563;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .word-example em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── Tip box ── */
+    .tip {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #6B3050;
+      margin-top: 28px;
+      line-height: 1.6;
+    }
+    .tip strong { color: var(--accent-dark); }
+
+    /* ── Footer ── */
+    .footer-cta {
+      background: linear-gradient(135deg, #8A4060 0%, #C47898 100%);
+      color: white;
+      text-align: center;
+      padding: 44px 32px;
+      margin-top: 12px;
+    }
+    .footer-cta h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .footer-cta p {
+      font-size: 14px;
+      opacity: 0.88;
+      margin-bottom: 24px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .tg-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 13px 30px;
+      border-radius: 100px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .footer-small {
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.65;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-tag">Бесплатный гайд</div>
+  <h1>
+    Бытовой английский
+    <em>слова, которых всегда не хватает</em>
+  </h1>
+  <p class="cover-sub">
+    Слова, которые нужны каждый день, но которым не учат на курсах.
+  </p>
+  <div class="cover-count">📋 46 слов · 6 категорий</div>
+  <div class="author-line">Составила Анна · репетитор английского · <a href="https://t.me/anna_bor_english">@anna_bor_english</a></div>
+</div>
+
+<!-- ══ INTRO ══ -->
+<div class="intro">
+  <p>
+    Когда я переехала, выяснилось, что <strong>слова из учебника и слова из жизни — это разные слова.</strong>
+    Я знала «kitchen» и «bathroom», но понятия не имела, как называется дуршлаг, вантуз или натяжная простыня.
+    Этот список — то, что я сама искала в первые месяцы. Сохрани и пользуйся.
+  </p>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="container">
+
+  <!-- КУХНЯ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🍳</div>
+      <div>
+        <div class="section-title">Кухня</div>
+        <div class="section-count">10 слов</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">colander</span><span class="word-br">/ˈkɒləndə/</span></td>
+          <td><span class="word-ru">дуршлаг</span></td>
+          <td class="word-example">Drain the pasta in the <em>colander</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">spatula</span><span class="word-br">/ˈspætʃʊlə/</span></td>
+          <td><span class="word-ru">лопатка для жарки</span></td>
+          <td class="word-example">Flip the pancakes with a <em>spatula</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">ladle</span><span class="word-br">/ˈleɪdl/</span></td>
+          <td><span class="word-ru">половник</span></td>
+          <td class="word-example">Serve the soup with a <em>ladle</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">whisk</span><span class="word-br">/wɪsk/</span></td>
+          <td><span class="word-ru">венчик</span></td>
+          <td class="word-example"><em>Whisk</em> the eggs until fluffy.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">grater</span><span class="word-br">/ˈɡreɪtə/</span></td>
+          <td><span class="word-ru">тёрка</span></td>
+          <td class="word-example">Grate the cheese on a fine <em>grater</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">peeler</span><span class="word-br">/ˈpiːlə/</span></td>
+          <td><span class="word-ru">овощечистка</span></td>
+          <td class="word-example">Use a <em>peeler</em> for the carrots.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">tongs</span><span class="word-br">/tɒŋz/</span></td>
+          <td><span class="word-ru">щипцы</span></td>
+          <td class="word-example">Turn the meat with <em>tongs</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">cling film</span><span class="word-br">AmE: plastic wrap</span></td>
+          <td><span class="word-ru">пищевая плёнка</span></td>
+          <td class="word-example">Cover it with <em>cling film</em> and refrigerate.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">washing-up liquid</span><span class="word-br">AmE: dish soap</span></td>
+          <td><span class="word-ru">средство для мытья посуды</span></td>
+          <td class="word-example">We're out of <em>washing-up liquid</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">draining board</span><span class="word-br">/ˈdreɪnɪŋ bɔːd/</span></td>
+          <td><span class="word-ru">сушилка у раковины</span></td>
+          <td class="word-example">Leave the dishes on the <em>draining board</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- СПАЛЬНЯ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🛏</div>
+      <div>
+        <div class="section-title">Спальня</div>
+        <div class="section-count">8 слов</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">duvet</span><span class="word-br">/ˈduːveɪ/</span></td>
+          <td><span class="word-ru">пуховое одеяло</span></td>
+          <td class="word-example">I need a thicker <em>duvet</em> for winter.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">duvet cover</span></td>
+          <td><span class="word-ru">пододеяльник</span></td>
+          <td class="word-example">Put a clean <em>duvet cover</em> on it.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">fitted sheet</span></td>
+          <td><span class="word-ru">натяжная простыня</span></td>
+          <td class="word-example">The <em>fitted sheet</em> keeps coming off.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">pillowcase</span><span class="word-br">/ˈpɪləʊkeɪs/</span></td>
+          <td><span class="word-ru">наволочка</span></td>
+          <td class="word-example">Change your <em>pillowcase</em> every week.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">mattress topper</span></td>
+          <td><span class="word-ru">наматрасник</span></td>
+          <td class="word-example">A memory foam <em>mattress topper</em> changed my sleep.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">wardrobe</span><span class="word-br">/ˈwɔːdrəʊb/</span></td>
+          <td><span class="word-ru">шкаф для одежды</span></td>
+          <td class="word-example">The <em>wardrobe</em> doesn't fit in the room.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">chest of drawers</span></td>
+          <td><span class="word-ru">комод</span></td>
+          <td class="word-example">I keep socks in the bottom drawer of my <em>chest of drawers</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">bedside table</span><span class="word-br">AmE: nightstand</span></td>
+          <td><span class="word-ru">тумбочка у кровати</span></td>
+          <td class="word-example">My phone's on the <em>bedside table</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ВАННАЯ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🚿</div>
+      <div>
+        <div class="section-title">Ванная</div>
+        <div class="section-count">7 слов</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">plunger</span><span class="word-br">/ˈplʌndʒə/</span></td>
+          <td><span class="word-ru">вантуз</span></td>
+          <td class="word-example">The sink's blocked — do you have a <em>plunger</em>?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">towel rail</span><span class="word-br">AmE: towel bar</span></td>
+          <td><span class="word-ru">полотенцесушитель</span></td>
+          <td class="word-example">Hang it on the <em>towel rail</em> to dry.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">shower curtain</span></td>
+          <td><span class="word-ru">шторка для душа</span></td>
+          <td class="word-example">The <em>shower curtain</em> needs replacing.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">bath mat</span></td>
+          <td><span class="word-ru">коврик для ванной</span></td>
+          <td class="word-example">Step onto the <em>bath mat</em> when you get out.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">toilet brush</span></td>
+          <td><span class="word-ru">ёршик</span></td>
+          <td class="word-example">There's a <em>toilet brush</em> behind the toilet.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">flannel</span><span class="word-br">AmE: washcloth / face cloth</span></td>
+          <td><span class="word-ru">мягкая тряпочка для умывания</span></td>
+          <td class="word-example">Use a <em>flannel</em> to remove your makeup.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">mirror cabinet</span></td>
+          <td><span class="word-ru">зеркальный шкафчик</span></td>
+          <td class="word-example">I keep medication in the <em>mirror cabinet</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- УБОРКА -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🧹</div>
+      <div>
+        <div class="section-title">Уборка</div>
+        <div class="section-count">8 слов</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">mop</span><span class="word-br">/mɒp/</span></td>
+          <td><span class="word-ru">швабра</span></td>
+          <td class="word-example">I need to <em>mop</em> the kitchen floor.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">dustpan</span><span class="word-br">/ˈdʌstpæn/</span></td>
+          <td><span class="word-ru">совок</span></td>
+          <td class="word-example">Sweep it into the <em>dustpan</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">bin liner</span><span class="word-br">AmE: trash bag</span></td>
+          <td><span class="word-ru">мусорный пакет</span></td>
+          <td class="word-example">Put in a new <em>bin liner</em> after you empty it.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">drying rack</span></td>
+          <td><span class="word-ru">сушилка для белья</span></td>
+          <td class="word-example">The clothes are on the <em>drying rack</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">ironing board</span></td>
+          <td><span class="word-ru">гладильная доска</span></td>
+          <td class="word-example">Set up the <em>ironing board</em> in the bedroom.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">clothes peg</span><span class="word-br">AmE: clothespin</span></td>
+          <td><span class="word-ru">прищепка</span></td>
+          <td class="word-example">Hang it up with a <em>clothes peg</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">squeegee</span><span class="word-br">/ˈskwiːdʒiː/</span></td>
+          <td><span class="word-ru">резиновый скребок (окна/душ)</span></td>
+          <td class="word-example">Use a <em>squeegee</em> on the shower glass.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">scrubbing brush</span></td>
+          <td><span class="word-ru">жёсткая щётка для чистки</span></td>
+          <td class="word-example">Get a <em>scrubbing brush</em> for the grout.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ГОСТИНАЯ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🛋</div>
+      <div>
+        <div class="section-title">Гостиная и общее</div>
+        <div class="section-count">8 слов</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">scatter cushions</span></td>
+          <td><span class="word-ru">декоративные подушки</span></td>
+          <td class="word-example">She threw some <em>scatter cushions</em> on the sofa.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">throw</span><span class="word-br">/θrəʊ/</span></td>
+          <td><span class="word-ru">декоративный плед</span></td>
+          <td class="word-example">There's a cosy <em>throw</em> on the armchair.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">blinds</span><span class="word-br">/blaɪndz/</span></td>
+          <td><span class="word-ru">жалюзи / рулонные шторы</span></td>
+          <td class="word-example">Pull down the <em>blinds</em> — it's too bright.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">skirting board</span><span class="word-br">AmE: baseboard</span></td>
+          <td><span class="word-ru">плинтус</span></td>
+          <td class="word-example">Don't forget to paint the <em>skirting boards</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">socket</span><span class="word-br">AmE: outlet</span></td>
+          <td><span class="word-ru">розетка</span></td>
+          <td class="word-example">There's no <em>socket</em> near the desk.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">extension lead</span><span class="word-br">AmE: extension cord</span></td>
+          <td><span class="word-ru">удлинитель</span></td>
+          <td class="word-example">I need an <em>extension lead</em> for the lamp.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">curtain rod</span><span class="word-br">BrE: curtain rail</span></td>
+          <td><span class="word-ru">карниз для штор</span></td>
+          <td class="word-example">The <em>curtain rod</em> fell off the wall.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">draught</span><span class="word-br">/drɑːft/ (BrE)</span></td>
+          <td><span class="word-ru">сквозняк</span></td>
+          <td class="word-example">Close the window — there's a <em>draught</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- АРЕНДА/ДОМ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏠</div>
+      <div>
+        <div class="section-title">Аренда и быт</div>
+        <div class="section-count">5 слов</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">utility bills</span></td>
+          <td><span class="word-ru">коммунальные платежи</span></td>
+          <td class="word-example">Are <em>utility bills</em> included in the rent?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">boiler</span><span class="word-br">/ˈbɔɪlə/</span></td>
+          <td><span class="word-ru">котёл / бойлер</span></td>
+          <td class="word-example">The <em>boiler</em> broke — no hot water.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">radiator</span><span class="word-br">/ˈreɪdieɪtə/</span></td>
+          <td><span class="word-ru">батарея отопления</span></td>
+          <td class="word-example">The <em>radiator</em> in the bedroom isn't working.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">damp</span><span class="word-br">/dæmp/</span></td>
+          <td><span class="word-ru">сырость</span><span class="word-note">прил. сырой / сущ. сырость</span></td>
+          <td class="word-example">There's <em>damp</em> on the bathroom ceiling.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">deposit</span><span class="word-br">/dɪˈpɒzɪt/</span></td>
+          <td><span class="word-ru">залог при аренде</span></td>
+          <td class="word-example">They kept part of my <em>deposit</em> for repairs.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      💡 <strong>BrE vs AmE:</strong> Многие слова из этого списка — британские варианты.
+      Если ты едешь в США — замени <em>cling film → plastic wrap</em>, <em>bin liner → trash bag</em>,
+      <em>flannel → washcloth</em>, <em>socket → outlet</em>. Остальные понимают в обеих странах.
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══ FOOTER CTA ══ -->
+<div class="footer-cta">
+  <h2>Хочешь подтянуть бытовой английский?</h2>
+  <p>Веду онлайн-уроки для уровней A2–C1. Разбираем язык, который реально нужен.</p>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:8px;">
+    <a class="tg-btn" href="https://t.me/anna_bor_english">✉️ &nbsp;Записаться на урок</a>
+    <a class="tg-btn" href="https://t.me/borzykh_english" style="background:rgba(255,255,255,0.15); color:white; border:1.5px solid rgba(255,255,255,0.4);">📢 &nbsp;Канал</a>
+  </div>
+  <div class="footer-small">
+    @anna_bor_english · занятия онлайн · Телемост<br>
+    Канал: Английский и другие сложности эмиграции
+  </div>
+</div>
+
+</body>
+</html>
