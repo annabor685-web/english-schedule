@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Группа Intermediate — Английский с Анной</title>
+  <style>
+    :root {
+      --accent: #B06080;
+      --accent-dark: #8A4060;
+      --accent-light: #FDEAEA;
+      --text: #1C1C1E;
+      --text-muted: #6B7280;
+      --bg: #FEF0F0;
+      --card: #FFFFFF;
+      --border: #F0DEDE;
+      --slot-bg: #FCE8EF;
+      --slot-text: #8A4060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #8A4060 0%, #C47898 100%);
+      color: white;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .header-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 700; letter-spacing: 0.05em;
+      color: white;
+      margin: 0 auto 16px;
+      overflow: hidden;
+    }
+    .header-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .header h1 { font-size: 25px; font-weight: 700; margin-bottom: 6px; }
+    .header .tagline { font-size: 15px; opacity: 0.88; margin-bottom: 20px; }
+    .badges {
+      display: flex; gap: 8px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 26px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.32);
+      border-radius: 100px;
+      padding: 4px 13px;
+      font-size: 12px; font-weight: 500;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 13px 30px;
+      border-radius: 100px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 18px rgba(0,0,0,0.22); }
+
+    /* ── Info strip ── */
+    .info-strip {
+      background: var(--accent-light);
+      border-bottom: 1px solid #F0C8C8;
+      padding: 11px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #8A4060;
+      font-weight: 500;
+    }
+    .info-strip .dot { margin: 0 10px; opacity: 0.5; }
+
+    /* ── Main ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    /* ── Section title ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      margin-bottom: 14px;
+    }
+    .card-icon { font-size: 24px; margin-bottom: 10px; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card p, .card li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .card ul { padding-left: 18px; }
+    .card ul li { margin-bottom: 4px; }
+
+    /* ── Format grid ── */
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .format-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .format-item .fi-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .format-item .fi-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+    .format-item .fi-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── Price block ── */
+    .price-block {
+      background: linear-gradient(135deg, #8A4060 0%, #C47898 100%);
+      border-radius: 18px;
+      padding: 28px 28px 24px;
+      color: white;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .price-block .price-label {
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0.8;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .price-block .price-value {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .price-block .price-per {
+      font-size: 15px;
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+    .price-block .price-note {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 22px;
+    }
+    .price-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 14px 36px;
+      border-radius: 100px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .price-cta:hover { transform: translateY(-2px); box-shadow: 0 5px 18px rgba(0,0,0,0.25); }
+
+    /* ── Spots indicator ── */
+    .spots {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-light);
+      border: 1px solid #F0C8C8;
+      border-radius: 12px;
+      padding: 12px 18px;
+      margin-bottom: 28px;
+      font-size: 14px;
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+    .spots-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #4CAF50;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
+      50% { box-shadow: 0 0 0 6px rgba(76,175,80,0.1); }
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 28px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: var(--card);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .back-link:hover { color: var(--accent-dark); border-color: var(--accent); }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 24px 20px 36px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .format-grid { grid-template-columns: 1fr; }
+      .header h1 { font-size: 21px; }
+      .price-block .price-value { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <div class="header-avatar"><img src="photo.jpg" alt="Анна"></div>
+  <h1>Группа Intermediate</h1>
+  <div class="tagline">Говорите, но хочется лучше — это для вас</div>
+  <div class="badges">
+    <span class="badge">🌍 Онлайн</span>
+    <span class="badge">⏱ 1.5 часа</span>
+    <span class="badge">👥 4–5 человек</span>
+    <span class="badge">📚 B1+–B2</span>
+    <span class="badge">📅 Старт сентябрь</span>
+  </div>
+  <a class="cta-btn" href="https://t.me/annaborzyx?text=Привет!+Хочу+записаться+в+группу+Intermediate">
+    ✉️&nbsp; Записаться в группу
+  </a>
+</div>
+
+<!-- ══ INFO STRIP ══ -->
+<div class="info-strip">
+  Набор открыт<span class="dot">·</span>старт в сентябре<span class="dot">·</span>группа 4–5 человек
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="container">
+
+  <a class="back-link" href="index.html">← Индивидуальные занятия</a>
+
+  <!-- Spots indicator -->
+  <div class="spots">
+    <div class="spots-dot"></div>
+    Идёт набор — напишите, чтобы занять место
+  </div>
+
+  <!-- Для кого -->
+  <div class="section-title">Для кого</div>
+  <div class="card" style="margin-bottom: 28px;">
+    <div class="card-icon">🎯</div>
+    <ul>
+      <li>Вы понимаете английский и можете объяснить мысль — но в разговоре теряетесь</li>
+      <li>Долго подбираете слова, переходите на русский, чувствуете, что язык «залипает»</li>
+      <li>Хотите говорить свободнее — без стресса и зубрёжки грамматики</li>
+      <li>Уровень: B1+ или B2 (можно проверить на вводном занятии)</li>
+    </ul>
+  </div>
+
+  <!-- Формат -->
+  <div class="section-title">Формат</div>
+  <div class="format-grid">
+    <div class="format-item">
+      <div class="fi-label">Длина урока</div>
+      <div class="fi-value">1.5 ч</div>
+      <div class="fi-sub">90 минут практики</div>
+    </div>
+    <div class="format-item">
+      <div class="fi-label">Размер группы</div>
+      <div class="fi-value">4–5</div>
+      <div class="fi-sub">человек</div>
+    </div>
+    <div class="format-item">
+      <div class="fi-label">Расписание</div>
+      <div class="fi-value">2×</div>
+      <div class="fi-sub">в неделю</div>
+    </div>
+    <div class="format-item">
+      <div class="fi-label">Платформа</div>
+      <div class="fi-value">Zoom</div>
+      <div class="fi-sub">онлайн, вся Россия</div>
+    </div>
+  </div>
+
+  <!-- Чем будем заниматься -->
+  <div class="section-title">Чем будем заниматься</div>
+  <div class="card" style="margin-bottom: 28px;">
+    <ul>
+      <li>Живые дискуссии на актуальные темы — говорим, а не переводим</li>
+      <li>Подкасты и видео как отправная точка для разговора</li>
+      <li>Разбор ошибок в формате группы — без стресса, с объяснением</li>
+      <li>Фокус на fluency и уверенности, не на правилах</li>
+      <li>Реальный язык: идиомы, разговорные конструкции, интонация</li>
+    </ul>
+  </div>
+
+  <!-- Цена и запись -->
+  <div class="section-title">Стоимость и запись</div>
+  <div class="price-block">
+    <div class="price-label">Цена за занятие</div>
+    <div class="price-value">2 000 ₽</div>
+    <div class="price-per">за 1.5 часа · оплата блоками</div>
+    <div class="price-note">Старт в сентябре — группа формируется сейчас</div>
+    <a class="price-cta" href="https://t.me/annaborzyx?text=Привет!+Хочу+записаться+в+группу+Intermediate">
+      ✉️&nbsp; Написать и записаться
+    </a>
+  </div>
+
+  <!-- Как записаться -->
+  <div class="section-title">Как это работает</div>
+  <div class="card">
+    <div class="card-icon">📋</div>
+    <ol style="padding-left: 18px; font-size: 14px; color: var(--text-muted); line-height: 1.9;">
+      <li>Напишите мне в Telegram — скажите, что хотите в группу</li>
+      <li>Я уточню ваш уровень (можно прийти на бесплатное пробное)</li>
+      <li>Как наберётся 4 человека — согласуем расписание и стартуем</li>
+    </ol>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  <p>Вопросы? <a href="https://t.me/annaborzyx">Напишите мне в Telegram</a></p>
+  <p style="margin-top:6px;">Хотите индивидуальные занятия? <a href="index.html">Смотрите расписание</a></p>
+</div>
+
+</body>
+</html>
