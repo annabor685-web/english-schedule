@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Английский у врача — слова и фразы, которые выручат</title>
+  <style>
+    :root {
+      --accent: #2E8B8B;
+      --accent-dark: #1F6363;
+      --accent-light: #E6F3F3;
+      --bg: #F0FAFA;
+      --card: #FFFFFF;
+      --border: #DCEDED;
+      --text: #1C1C1E;
+      --muted: #6B7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+      .section { break-inside: avoid; }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      background: linear-gradient(135deg, #1F6363 0%, #3EA6A6 100%);
+      color: white;
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -30px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .cover-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .cover h1 em {
+      font-style: normal;
+      opacity: 0.75;
+      font-weight: 400;
+      font-size: 26px;
+      display: block;
+      margin-top: 4px;
+    }
+    .cover-sub {
+      font-size: 15px;
+      opacity: 0.85;
+      max-width: 420px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .cover-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .author-line {
+      margin-top: 28px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+    .author-line a {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      background: var(--accent-light);
+      border-bottom: 1px solid #CDE6E6;
+      padding: 24px 40px;
+    }
+    .intro p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: #1F5B5B;
+      line-height: 1.7;
+    }
+    .intro strong { color: var(--accent-dark); }
+
+    /* ── Main layout ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 60px;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-icon {
+      font-size: 22px;
+      width: 44px; height: 44px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      letter-spacing: -0.01em;
+    }
+    .section-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── Word table ── */
+    .word-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .word-table thead {
+      background: #EAF6F6;
+    }
+    .word-table th {
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .word-table td {
+      padding: 12px 14px;
+      font-size: 13.5px;
+      border-bottom: 1px solid #EEF7F7;
+      vertical-align: top;
+    }
+    .word-table tr:last-child td {
+      border-bottom: none;
+    }
+    .word-table tr:hover td {
+      background: #F3FAFA;
+    }
+    .word-en {
+      font-weight: 700;
+      color: var(--accent-dark);
+      font-size: 15px;
+    }
+    .word-br {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+      display: block;
+      margin-top: 1px;
+    }
+    .word-ru {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .word-note {
+      font-size: 12px;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+    .word-example {
+      color: #4B5563;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .word-example em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── Tip box ── */
+    .tip {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #1F5B5B;
+      margin-top: 28px;
+      line-height: 1.6;
+    }
+    .tip strong { color: var(--accent-dark); }
+
+    /* ── Footer ── */
+    .footer-cta {
+      background: linear-gradient(135deg, #1F6363 0%, #3EA6A6 100%);
+      color: white;
+      text-align: center;
+      padding: 44px 32px;
+      margin-top: 12px;
+    }
+    .footer-cta h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .footer-cta p {
+      font-size: 14px;
+      opacity: 0.88;
+      margin-bottom: 24px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .tg-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--accent-dark);
+      padding: 13px 30px;
+      border-radius: 100px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .footer-small {
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.65;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-tag">Бесплатный гайд</div>
+  <h1>
+    Английский у врача
+    <em>слова и фразы, которые выручат</em>
+  </h1>
+  <p class="cover-sub">
+    То, что реально нужно на приёме за рубежом — а не то, чему учат на курсах.
+  </p>
+  <div class="cover-count">📋 51 слово и фраза · 7 категорий</div>
+  <div class="author-line">Составила Анна · репетитор английского · <a href="https://t.me/borzykh_english">@annaborzyx</a></div>
+</div>
+
+<!-- ══ INTRO ══ -->
+<div class="intro">
+  <p>
+    На приёме у врача за рубежом обычного словарного запаса не хватает почти всегда:
+    <strong>термины сыплются быстрее, чем успеваешь их понять</strong>, а нужные слова — про боль, симптомы, лекарства — на курсах не проходят.
+    Этот список — то, что реально пригодится: как описать, что болит, что сказать на ресепшене
+    и как переспросить, если не понял(а). Сохрани и держи под рукой.
+  </p>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="container">
+
+  <!-- ПРОСТУДА И ГРИПП -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🤧</div>
+      <div>
+        <div class="section-title">Простуда и грипп</div>
+        <div class="section-count">8 слов и фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово / фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">sore throat</span><span class="word-br">/sɔː θrəʊt/</span></td>
+          <td><span class="word-ru">больное горло</span></td>
+          <td class="word-example">I've had a <em>sore throat</em> since yesterday.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">runny nose</span></td>
+          <td><span class="word-ru">насморк (течёт)</span></td>
+          <td class="word-example">I've got a <em>runny nose</em> and I keep sneezing.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">blocked nose</span><span class="word-br">AmE: stuffy nose</span></td>
+          <td><span class="word-ru">заложенный нос</span></td>
+          <td class="word-example">My nose is completely <em>blocked</em> — I can't breathe through it.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">cough</span><span class="word-br">/kɒf/</span></td>
+          <td><span class="word-ru">кашель</span></td>
+          <td class="word-example">I've had a dry <em>cough</em> for three days.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">sneezing</span><span class="word-br">/ˈsniːzɪŋ/</span></td>
+          <td><span class="word-ru">чихание</span></td>
+          <td class="word-example">I can't stop <em>sneezing</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">fever</span><span class="word-br">/ˈfiːvə/</span></td>
+          <td><span class="word-ru">температура, жар</span></td>
+          <td class="word-example">I've got a slight <em>fever</em> — 37.8.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">chills</span><span class="word-br">/tʃɪlz/</span></td>
+          <td><span class="word-ru">озноб</span></td>
+          <td class="word-example">I've got <em>chills</em> and I feel achy all over.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">contagious</span><span class="word-br">/kənˈteɪdʒəs/</span></td>
+          <td><span class="word-ru">заразный</span></td>
+          <td class="word-example">Is it <em>contagious</em>? Should I stay home?</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- СИМПТОМЫ И БОЛЬ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🤒</div>
+      <div>
+        <div class="section-title">Боль и ощущения</div>
+        <div class="section-count">8 слов и фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово / фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">sharp pain</span><span class="word-br">/ʃɑːp peɪn/</span></td>
+          <td><span class="word-ru">острая боль</span></td>
+          <td class="word-example">I've got a <em>sharp pain</em> in my chest.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">dull ache</span><span class="word-br">/dʌl eɪk/</span></td>
+          <td><span class="word-ru">тупая, тянущая боль</span></td>
+          <td class="word-example">There's a <em>dull ache</em> in my lower back.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">throbbing</span><span class="word-br">/ˈθrɒbɪŋ/</span></td>
+          <td><span class="word-ru">пульсирующая (боль)</span></td>
+          <td class="word-example">My head's been <em>throbbing</em> since this morning.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">tender</span><span class="word-br">/ˈtendə/</span></td>
+          <td><span class="word-ru">болезненный при нажатии</span></td>
+          <td class="word-example">The area is <em>tender</em> to the touch.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">swollen</span><span class="word-br">/ˈswəʊlən/</span></td>
+          <td><span class="word-ru">опухший</span></td>
+          <td class="word-example">My ankle is <em>swollen</em> and bruised.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">numb</span><span class="word-br">/nʌm/</span></td>
+          <td><span class="word-ru">онемевший</span></td>
+          <td class="word-example">My fingers went <em>numb</em> in the cold.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">nauseous</span><span class="word-br">/ˈnɔːziəs/</span></td>
+          <td><span class="word-ru">тошнит</span></td>
+          <td class="word-example">I've been feeling <em>nauseous</em> since lunch.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">short of breath</span></td>
+          <td><span class="word-ru">не хватает воздуха</span></td>
+          <td class="word-example">I get <em>short of breath</em> climbing stairs.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ЗАПИСЬ К ВРАЧУ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📅</div>
+      <div>
+        <div class="section-title">Запись и приём</div>
+        <div class="section-count">7 слов и фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово / фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">book an appointment</span></td>
+          <td><span class="word-ru">записаться на приём</span></td>
+          <td class="word-example">I'd like to <em>book an appointment</em> for next week.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">GP</span><span class="word-br">AmE: primary care physician</span></td>
+          <td><span class="word-ru">участковый терапевт</span></td>
+          <td class="word-example">You'll need to see your <em>GP</em> first.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">walk-in clinic</span></td>
+          <td><span class="word-ru">клиника без записи</span></td>
+          <td class="word-example">There's a <em>walk-in clinic</em> near the station.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">referral</span><span class="word-br">/rɪˈfɜːrəl/</span></td>
+          <td><span class="word-ru">направление к специалисту</span></td>
+          <td class="word-example">My GP gave me a <em>referral</em> to a cardiologist.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">receptionist</span><span class="word-br">/rɪˈsepʃənɪst/</span></td>
+          <td><span class="word-ru">администратор на ресепшене</span></td>
+          <td class="word-example">Give your details to the <em>receptionist</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">waiting room</span></td>
+          <td><span class="word-ru">зал ожидания</span></td>
+          <td class="word-example">Take a seat in the <em>waiting room</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">follow-up appointment</span></td>
+          <td><span class="word-ru">повторный приём</span></td>
+          <td class="word-example">Let's schedule a <em>follow-up appointment</em> in two weeks.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ИСТОРИЯ БОЛЕЗНИ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div>
+        <div class="section-title">История болезни и лекарства</div>
+        <div class="section-count">7 слов и фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово / фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">I'm allergic to...</span></td>
+          <td><span class="word-ru">у меня аллергия на...</span></td>
+          <td class="word-example"><em>I'm allergic to</em> penicillin.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">no known allergies</span></td>
+          <td><span class="word-ru">нет известных аллергий</span></td>
+          <td class="word-example">As far as I know, I have <em>no known allergies</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">I'm currently taking...</span></td>
+          <td><span class="word-ru">сейчас принимаю...</span></td>
+          <td class="word-example"><em>I'm currently taking</em> blood pressure medication.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">medical history</span></td>
+          <td><span class="word-ru">история болезни</span></td>
+          <td class="word-example">Do you have any relevant <em>medical history</em>?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">chronic condition</span></td>
+          <td><span class="word-ru">хроническое заболевание</span></td>
+          <td class="word-example">I have a <em>chronic condition</em> — asthma.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">pre-existing condition</span></td>
+          <td><span class="word-ru">уже имеющееся заболевание</span><span class="word-note">важно для страховки</span></td>
+          <td class="word-example">Check if it's covered as a <em>pre-existing condition</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">over the counter</span><span class="word-br">(OTC)</span></td>
+          <td><span class="word-ru">безрецептурный</span></td>
+          <td class="word-example">Is this available <em>over the counter</em>?</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ДИАГНОЗ И ЛЕЧЕНИЕ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💊</div>
+      <div>
+        <div class="section-title">Диагноз и лечение</div>
+        <div class="section-count">8 слов и фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово / фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">prescription</span><span class="word-br">/prɪˈskrɪpʃən/</span></td>
+          <td><span class="word-ru">рецепт</span></td>
+          <td class="word-example">Here's your <em>prescription</em> — take it to the pharmacy.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">dosage</span><span class="word-br">/ˈdəʊsɪdʒ/</span></td>
+          <td><span class="word-ru">дозировка</span></td>
+          <td class="word-example">Follow the <em>dosage</em> instructions on the label.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">side effects</span></td>
+          <td><span class="word-ru">побочные эффекты</span></td>
+          <td class="word-example">Are there any <em>side effects</em> I should know about?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">blood test</span></td>
+          <td><span class="word-ru">анализ крови</span></td>
+          <td class="word-example">We'll need to run a <em>blood test</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">results</span></td>
+          <td><span class="word-ru">результаты (анализов)</span></td>
+          <td class="word-example">Your <em>results</em> should be ready in three days.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">rest and fluids</span></td>
+          <td><span class="word-ru">покой и обильное питьё</span></td>
+          <td class="word-example">Just get plenty of <em>rest and fluids</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">refer to a specialist</span></td>
+          <td><span class="word-ru">направить к специалисту</span></td>
+          <td class="word-example">I'll <em>refer you to a specialist</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">sick note</span><span class="word-br">AmE: doctor's note</span></td>
+          <td><span class="word-ru">больничный лист</span></td>
+          <td class="word-example">Could I get a <em>sick note</em> for work?</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ЭКСТРЕННАЯ ПОМОЩЬ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🚑</div>
+      <div>
+        <div class="section-title">Экстренная помощь</div>
+        <div class="section-count">7 слов и фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Слово / фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">call an ambulance</span></td>
+          <td><span class="word-ru">вызвать скорую</span></td>
+          <td class="word-example"><em>Call an ambulance</em>, please!</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">A&E</span><span class="word-br">AmE: ER (emergency room)</span></td>
+          <td><span class="word-ru">приёмный покой</span></td>
+          <td class="word-example">We need to get to <em>A&E</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">urgent care</span></td>
+          <td><span class="word-ru">неотложная помощь</span><span class="word-note">когда не критично</span></td>
+          <td class="word-example">This isn't life-threatening — go to <em>urgent care</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">I can't breathe</span></td>
+          <td><span class="word-ru">я не могу дышать</span></td>
+          <td class="word-example">Help, <em>I can't breathe</em> properly!</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">chest pain</span></td>
+          <td><span class="word-ru">боль в груди</span></td>
+          <td class="word-example">He's complaining of <em>chest pain</em>.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">I passed out</span><span class="word-br">= I fainted</span></td>
+          <td><span class="word-ru">я потерял(а) сознание</span></td>
+          <td class="word-example"><em>I passed out</em> at the gym earlier.</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">bleeding heavily</span></td>
+          <td><span class="word-ru">сильное кровотечение</span></td>
+          <td class="word-example">The cut is <em>bleeding heavily</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ЧТОБЫ ВСЁ ПОНЯТЬ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <div>
+        <div class="section-title">Чтобы всё понять</div>
+        <div class="section-count">6 фраз</div>
+      </div>
+    </div>
+    <table class="word-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Фраза</th>
+          <th style="width:24%">Перевод</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="word-en">Could you explain that in simpler words?</span></td>
+          <td><span class="word-ru">можете объяснить проще?</span></td>
+          <td class="word-example"><em>Could you explain that in simpler words</em>, please?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">Could you repeat that, please?</span></td>
+          <td><span class="word-ru">повторите, пожалуйста</span></td>
+          <td class="word-example">Sorry, <em>could you repeat that, please</em>?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">What does that mean exactly?</span></td>
+          <td><span class="word-ru">что это значит?</span></td>
+          <td class="word-example"><em>What does that mean exactly</em> — "inflammation"?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">Is it serious?</span></td>
+          <td><span class="word-ru">это серьёзно?</span></td>
+          <td class="word-example"><em>Is it serious</em>, or can I treat it at home?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">What should I do if it gets worse?</span></td>
+          <td><span class="word-ru">что делать, если станет хуже?</span></td>
+          <td class="word-example"><em>What should I do if it gets worse</em> overnight?</td>
+        </tr>
+        <tr>
+          <td><span class="word-en">Do I need to come back?</span></td>
+          <td><span class="word-ru">мне нужно прийти ещё раз?</span></td>
+          <td class="word-example"><em>Do I need to come back</em> for a check-up?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      💡 <strong>BrE vs AmE:</strong> Часть слов различается по вариантам.
+      В США вместо <em>GP</em> скажут <em>primary care physician</em>, вместо <em>A&E</em> — <em>ER</em>,
+      вместо <em>sick note</em> — <em>doctor's note</em>. В Британии и большинстве других стран — как в списке.
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══ FOOTER CTA ══ -->
+<div class="footer-cta">
+  <h2>Готовишься к визиту к врачу за рубежом?</h2>
+  <p>Веду онлайн-уроки для уровней A2–C1. Разбираем язык, который реально нужен — не только грамматику.</p>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:8px;">
+    <a class="tg-btn" href="https://t.me/annaborzyx">✉️ &nbsp;Записаться на урок</a>
+    <a class="tg-btn" href="https://t.me/borzykh_english" style="background:rgba(255,255,255,0.15); color:white; border:1.5px solid rgba(255,255,255,0.4);">📢 &nbsp;Канал</a>
+  </div>
+  <div class="footer-small">
+    @annaborzyx · занятия онлайн · Телемост<br>
+    Канал: Английский и другие сложности эмиграции
+  </div>
+</div>
+
+</body>
+</html>
